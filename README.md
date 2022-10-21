@@ -7,4 +7,19 @@
 - Typescript
 - React18
 - Mui
-- React-Query, Recoil
+
+### 상태관리
+
+- Redux
+- React-Query
+
+### 테스트
+
+- Jest
+- Teting-Library
+
+### 패키지 매니저
+
+- yarn berry
+
+---
