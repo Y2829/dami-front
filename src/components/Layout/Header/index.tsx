@@ -3,7 +3,7 @@ import type { FC } from "react";
 import { styled } from "@mui/material";
 import { AppBar } from "@mui/material";
 
-import { NAV_BAR_WIDTH } from "src/configs";
+import { NAV_BAR_WIDTH } from "src/configs/layout";
 
 const StyledRoot = styled(AppBar)(({ theme }) => ({
   boxShadow: "none",
