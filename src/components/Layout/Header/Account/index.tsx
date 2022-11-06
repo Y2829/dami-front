@@ -1,13 +1,18 @@
 import type { FC } from "react";
 
+import { useState } from "react";
 import { styled } from "@mui/material";
 import { Box, Avatar } from "@mui/material";
 import NotificationsIcon from "@mui/icons-material/Notifications";
+
+import DetailAccount from "./DetailAccount";
 
 const NotiWrapper = styled(Box)({
   width: "30px",
   height: "30px",
   position: "relative",
+  marginRight: 4,
+  cursor: "pointer",
 });
 
 const NotiCount = styled(Box)(({ theme }) => ({
@@ -27,6 +32,12 @@ const NotiCount = styled(Box)(({ theme }) => ({
 }));
 
 const Account: FC = () => {
+  const [isOpen, setIsOpen] = useState<boolean>(false);
+
+  const handleClickAccount = () => {
+    setIsOpen((prev) => !prev);
+  };
+
   return (
     <Box
       sx={{
@@ -38,12 +49,20 @@ const Account: FC = () => {
         <NotificationsIcon
           sx={{
             color: "#1a1a1a",
-            marginRight: 1,
           }}
         />
         <NotiCount>10</NotiCount>
       </NotiWrapper>
-      <Avatar>A</Avatar>
+      <Box
+        sx={{
+          cursor: "pointer",
+          position: "relative",
+        }}
+        onClick={handleClickAccount}
+      >
+        <Avatar>A</Avatar>
+        <DetailAccount isOpen={isOpen} />
+      </Box>
     </Box>
   );
 };

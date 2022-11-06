@@ -12,7 +12,6 @@ const StyledRoot = styled(Box)(({ theme }) => ({
   width: "100%",
   height: `${DESKTOP_HEADER}px`,
   padding: "4px 16px",
-
   boxShadow: `0px 0px 12px ${theme.palette.grey[300]}`,
   backgroundColor: "#fff",
   display: "flex",
@@ -24,7 +23,6 @@ const Header: FC = () => {
   return (
     <StyledRoot>
       <Logo />
-
       <Navigation />
       <Account />
     </StyledRoot>
