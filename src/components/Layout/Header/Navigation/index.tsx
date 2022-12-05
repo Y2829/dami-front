@@ -28,12 +28,14 @@ const Navigation: FC = () => {
         justifyContent: "start",
       }}
     >
-      {ROUTES.map((route) => (
-        <NavItem>
-          <Link to={route.path}>{route.name}</Link>
-        </NavItem>
-      ))}
-      <NavItem>아띠찾기</NavItem>
+      {ROUTES.map(
+        (route) =>
+          route.isNavigation && (
+            <NavItem>
+              <Link to={route.path}>{route.name}</Link>
+            </NavItem>
+          ),
+      )}
     </Box>
   );
 };

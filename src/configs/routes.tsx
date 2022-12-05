@@ -10,6 +10,7 @@ const ROUTES: Array<RouteItem> = [
     path: "/home",
     icon: <HomeIcon />,
     component: <Home />,
+    isNavigation: true,
   },
 ];
 
