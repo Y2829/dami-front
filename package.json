@@ -33,7 +33,8 @@
     "test": "yarn jest ./src",
     "eject": "react-scripts eject",
     "lint": "yarn eslint ./src",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "watch": "jest --watchAll"
   },
   "eslintConfig": {
     "extends": [
