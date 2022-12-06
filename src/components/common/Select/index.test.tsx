@@ -4,7 +4,7 @@ import Select from "./index";
 
 type MenuItem = { id: number; value: string; name: string };
 
-describe("Select Component 테스트", () => {
+describe("Select Component Test", () => {
   const label = "색상";
   const menuItems: Array<MenuItem> = [
     { id: 1, value: "Red", name: "빨간색" },
