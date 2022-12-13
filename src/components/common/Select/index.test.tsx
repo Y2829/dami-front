@@ -1,47 +1,43 @@
-import { render, fireEvent } from "@testing-library/react";
+import { render, screen, fireEvent } from "@testing-library/react";
 
 import Select from "./index";
 
-type MenuItem = { id: number; value: string; name: string };
-
 describe("Select Component Test", () => {
   const label = "색상";
-  const menuItems: Array<MenuItem> = [
+  const menuItems = [
     { id: 1, value: "Red", name: "빨간색" },
-    { id: 2, value: "Green", name: "초록색" },
-    { id: 3, value: "Blue", name: "파란색" },
+    { id: 2, value: "Blue", name: "파란색" },
+    { id: 3, value: "Green", name: "초록색" },
   ];
-  const handleChange = jest.fn();
 
-  it("rendering test", () => {
+  test("초기 렌더링 테스트", () => {
+    const value = "";
+    const onChange = jest.fn();
     render(
-      <Select label={label} menuItems={menuItems} onChange={handleChange} />,
-    );
-  });
-
-  it("select change test", () => {
-    const { getByDisplayValue } = render(
-      <Select label={label} menuItems={menuItems} onChange={handleChange} />,
-    );
-    const select = getByDisplayValue("");
-    fireEvent.change(select, { target: { value: "Red" } });
-    expect((select as HTMLInputElement).value).toMatch("Red");
-
-    fireEvent.change(select, { target: { value: "Green" } });
-    expect((select as HTMLInputElement).value).toMatch("Green");
-  });
-
-  it("select default value test", () => {
-    const { getByDisplayValue } = render(
       <Select
         label={label}
+        value={value}
         menuItems={menuItems}
-        defaultValue={"Blue"}
-        onChange={handleChange}
+        onChange={onChange}
+      />,
+    );
+  });
+
+  test("Select 값 변경 사용자 테스트", () => {
+    let value = "Red";
+    const onChange = jest.fn((newValue) => (value = newValue));
+    render(
+      <Select
+        label={label}
+        value={value}
+        menuItems={menuItems}
+        onChange={onChange}
       />,
     );
 
-    const select = getByDisplayValue("Blue");
-    expect((select as HTMLInputElement).value).toMatch("Blue");
+    const select = screen.getByDisplayValue("Red");
+
+    fireEvent.change(select, { target: { value: "Blue" } });
+    expect(value).toMatch("Blue");
   });
 });

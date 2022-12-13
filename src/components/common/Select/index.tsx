@@ -12,21 +12,14 @@ type SelectMenuItem<T> = { id: number; value: T; name: string };
 
 interface SelectProps<T> {
   label: string;
+  value: T;
   menuItems: Array<SelectMenuItem<T>>;
-  defaultValue?: T;
   onChange: (value: T) => void;
 }
 
-const Select = <T,>({
-  label,
-  menuItems,
-  defaultValue,
-  onChange,
-}: SelectProps<T>) => {
-  const [value, setValue] = useState<T | null>(defaultValue ?? null);
+const Select = <T,>({ label, value, menuItems, onChange }: SelectProps<T>) => {
   const handleChange = (e: SelectChangeEvent) => {
     const selectedValue = e.target.value as T;
-    setValue(selectedValue);
     onChange(selectedValue);
   };
   return (
