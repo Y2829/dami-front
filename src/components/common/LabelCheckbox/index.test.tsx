@@ -1,23 +1,22 @@
-import { render, fireEvent } from "@testing-library/react";
-
+import { render, screen } from "@testing-library/react";
 import LabelCheckbox from "./index";
 
-describe("LabelCheckbox Component Test", () => {
-  const label = "남성";
-  const value = "MALE";
-  const onChange = jest.fn();
-
-  it("rendering test", () => {
-    render(<LabelCheckbox label={label} value={value} onChane={onChange} />);
-  });
-
-  it("checkbox click event", () => {
-    const { getByLabelText } = render(
-      <LabelCheckbox label={label} value={value} onChane={onChange} />,
+describe("Label Checkbox Component Test", () => {
+  const label = "빨간색";
+  const value = "Red";
+  test("초기 렌더링 테스트", () => {
+    const checked = false;
+    const onChange = jest.fn();
+    render(
+      <LabelCheckbox
+        label={label}
+        value={value}
+        checked={checked}
+        onChange={onChange}
+      />,
     );
 
-    const checkbox = getByLabelText("남성");
-    fireEvent.change(checkbox, { target: { checked: true } });
-    expect((checkbox as HTMLInputElement).checked).toBeTruthy();
+    const checkbox = screen.getByRole("checkbox");
+    expect(checkbox).toBeInTheDocument();
   });
 });
