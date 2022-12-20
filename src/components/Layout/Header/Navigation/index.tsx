@@ -31,7 +31,7 @@ const Navigation: FC = () => {
       {ROUTES.map(
         (route) =>
           route.isNavigation && (
-            <NavItem>
+            <NavItem key={route.path}>
               <Link to={route.path}>{route.name}</Link>
             </NavItem>
           ),

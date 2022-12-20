@@ -1,28 +1,15 @@
-import { fireEvent, render, screen } from "@testing-library/react";
+import type { Gender } from "./index";
+import { render, screen } from "@testing-library/react";
 
 import GenderCheck from "./index";
 
 describe("Gender Check Component Test", () => {
-  test("체크할 수 있는 성별은 2개다.", () => {
+  test("성별은 남성과 여성에 대해 체크할 수 있다.", () => {
+    const checkedValue = new Set<Gender>();
     const handleCheck = jest.fn();
-    render(<GenderCheck onCheck={handleCheck} />);
+    render(<GenderCheck checkedValue={checkedValue} onCheck={handleCheck} />);
 
-    const genderCheckbox = screen.getAllByRole("checkbox");
-    expect(genderCheckbox).toHaveLength(2);
-  });
-
-  test("성별은 중복으로 체크할 수 없다.", () => {
-    const handleCheck = jest.fn();
-    render(<GenderCheck onCheck={handleCheck} />);
-
-    const genderCheck = screen.getAllByRole("checkbox");
-    const [maleCheck, femaleCheck] = genderCheck;
-
-    fireEvent.click(maleCheck);
-    expect(maleCheck).toBeChecked();
-
-    fireEvent.click(femaleCheck);
-    expect(maleCheck).not.toBeChecked();
-    expect(femaleCheck).toBeChecked();
+    const checkboxes = screen.getAllByRole("checkbox", { name: /성$/ });
+    expect(checkboxes).toHaveLength(2);
   });
 });

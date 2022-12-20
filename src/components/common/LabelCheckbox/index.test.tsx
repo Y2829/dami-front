@@ -2,11 +2,12 @@ import { render, screen } from "@testing-library/react";
 import LabelCheckbox from "./index";
 
 describe("Label Checkbox Component Test", () => {
-  const label = "빨간색";
-  const value = "Red";
-  test("초기 렌더링 테스트", () => {
+  test("전달된 props에 맞게 렌더링이 되는지 테스트한다.", () => {
+    const label = "파란색";
+    const value = "Blue";
     const checked = false;
     const onChange = jest.fn();
+
     render(
       <LabelCheckbox
         label={label}
@@ -16,7 +17,7 @@ describe("Label Checkbox Component Test", () => {
       />,
     );
 
-    const checkbox = screen.getByRole("checkbox");
+    const checkbox = screen.getByRole("checkbox", { name: label });
     expect(checkbox).toBeInTheDocument();
   });
 });

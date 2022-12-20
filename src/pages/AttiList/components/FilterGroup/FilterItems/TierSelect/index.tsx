@@ -3,10 +3,11 @@ import { useState, useEffect } from "react";
 import Select from "src/components/common/Select";
 
 interface TierSelectProps {
+  value: Tier | null;
   onSelect: (value: Tier | null) => void;
 }
 
-type Tier =
+export type Tier =
   | "IRON"
   | "BRONZE"
   | "SILVER"
@@ -29,18 +30,12 @@ const menuItems: Array<{ id: number; value: Tier; name: string }> = [
   { id: 9, value: "CHALLENGER", name: "챌린저" },
 ];
 
-export default function TierSelect({ onSelect }: TierSelectProps) {
-  const [value, setValue] = useState<Tier | null>(null);
-
-  useEffect(() => {
-    onSelect(value);
-  }, [value]);
-
+export default function TierSelect({ value, onSelect }: TierSelectProps) {
   return (
     <Select
       label="티어"
       value={value}
-      onChange={(newValue) => setValue(newValue)}
+      onChange={onSelect}
       menuItems={menuItems}
     />
   );

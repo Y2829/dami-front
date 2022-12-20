@@ -3,10 +3,11 @@ import { useState, useEffect } from "react";
 import Select from "src/components/common/Select";
 
 interface SortTypeSelectProps {
+  value: SortType;
   onSelect: (value: SortType) => void;
 }
 
-type SortType =
+export type SortType =
   | "추천순"
   | "신규가입자순"
   | "평점순"
@@ -23,18 +24,15 @@ const menuItems: Array<{ id: number; value: SortType; name: string }> = [
   { id: 6, value: "높은가격순", name: "높은가격순" },
 ];
 
-export default function SortTypeSelect({ onSelect }: SortTypeSelectProps) {
-  const [value, setValue] = useState<SortType>("추천순");
-
-  useEffect(() => {
-    onSelect(value);
-  }, [value]);
-
+export default function SortTypeSelect({
+  value,
+  onSelect,
+}: SortTypeSelectProps) {
   return (
     <Select
       label={"정렬"}
       value={value}
-      onChange={(value) => setValue(value)}
+      onChange={onSelect}
       menuItems={menuItems}
     />
   );

@@ -12,7 +12,7 @@ type SelectMenuItem<T> = { id: number; value: T; name: string };
 
 interface SelectProps<T> {
   label: string;
-  value: T;
+  value: T | null;
   menuItems: Array<SelectMenuItem<T>>;
   onChange: (value: T) => void;
 }
