@@ -11,7 +11,11 @@ const AppRoutes = () => {
         <Routes>
           <Route path="/" element={<Layout />}>
             {ROUTES.map((route) => (
-              <Route path={route.path} element={route.component} />
+              <Route
+                key={route.path}
+                path={route.path}
+                element={route.component}
+              />
             ))}
           </Route>
         </Routes>
