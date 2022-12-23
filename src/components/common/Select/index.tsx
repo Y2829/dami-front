@@ -26,6 +26,7 @@ const Select = <T,>({ label, value, menuItems, onChange }: SelectProps<T>) => {
     <Box
       sx={{
         width: 150,
+        backgroundColor: "#fff",
       }}
     >
       <FormControl fullWidth>
