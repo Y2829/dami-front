@@ -22,8 +22,13 @@ export default function PositionCheck({
   onCheck,
 }: PositionCheckProps) {
   return (
-    <Box>
-      <Typography>포지션</Typography>
+    <Box
+      sx={{
+        display: "flex",
+        alignItems: "center",
+      }}
+    >
+      <Typography variant="h6">포지션</Typography>
       <Divider
         orientation="vertical"
         variant="middle"

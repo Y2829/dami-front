@@ -58,15 +58,32 @@ export default function FilterGroup() {
   };
 
   return (
-    <Box>
-      <Box>
+    <Box
+      sx={{
+        padding: 2,
+      }}
+    >
+      <Box
+        sx={{
+          width: "25%",
+          display: "flex",
+          justifyContent: "space-between",
+        }}
+      >
         <SortTypeSelect
           value={selectedSortType}
           onSelect={handleSelectSortType}
         />
         <TierSelect value={selectedTier} onSelect={handleSelectTier} />
       </Box>
-      <Box>
+      <Box
+        sx={{
+          width: "50%",
+          display: "flex",
+          justifyContent: "space-between",
+          marginTop: 2,
+        }}
+      >
         <GenderCheck
           checkedValue={checkedGenderValue}
           onCheck={handleCheckGender}
@@ -75,7 +92,9 @@ export default function FilterGroup() {
           checkedValues={checkedPositionValues}
           onCheck={handleCheckPosition}
         />
-        <Button onClick={handleClickResetBtn}>초기화</Button>
+        <Button variant="contained" onClick={handleClickResetBtn}>
+          초기화
+        </Button>
       </Box>
     </Box>
   );
