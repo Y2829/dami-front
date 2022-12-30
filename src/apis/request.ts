@@ -22,7 +22,7 @@ interface RequestProps {
 
 const axiosInstance = axios.create();
 
-export const request = <S = any>({
+export default function request<S = any>({
   method,
   url,
   queryParams,
@@ -31,10 +31,10 @@ export const request = <S = any>({
   isMultipart = false,
   responseType,
   isLogin = false,
-}: RequestProps): Promise<AxiosResponse<S, any>> => {
+}: RequestProps): Promise<AxiosResponse<S, any>> {
   // config 초기값 설정
   const config: AxiosRequestConfig = {
-    baseURL: process.env.NEXT_PUBLIC_API_BASE_URL,
+    baseURL: process.env.REACT_APP_BASE_API_URL,
     headers: {
       // "Cache-Control": "no-cache", // [보안성 테스트 필수 코드] 브라우저의 서버 응답 캐시여부를
       // 개발자가 결정 (캐시 컨트롤 필수)
@@ -91,4 +91,4 @@ export const request = <S = any>({
     default:
       return axiosInstance.get(url, config);
   }
-};
+}
