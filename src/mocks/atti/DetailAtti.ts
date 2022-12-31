@@ -1,13 +1,18 @@
 import { rest } from "msw";
 
-export const getDetailAtti = rest.get(`/atti/1`, (req, res, ctx) => {
-  return res(
-    ctx.status(200),
-    ctx.json({
-      data: makeDetailAtti(),
-    }),
-  );
-});
+const BASE_API_URL = process.env.REACT_APP_BASE_API_URL;
+
+export const getDetailAtti = rest.get(
+  `${BASE_API_URL}/atti/1`,
+  (req, res, ctx) => {
+    return res(
+      ctx.status(200),
+      ctx.json({
+        data: makeDetailAtti(),
+      }),
+    );
+  },
+);
 
 function makeDetailAtti() {
   return {
