@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import type { Tier } from "src/types/lol";
 
 import Select from "src/components/common/Select";
 
@@ -6,17 +6,6 @@ interface TierSelectProps {
   value: Tier | null;
   onSelect: (value: Tier | null) => void;
 }
-
-export type Tier =
-  | "IRON"
-  | "BRONZE"
-  | "SILVER"
-  | "GOLD"
-  | "PLATINUM"
-  | "DIAMOND"
-  | "MASTER"
-  | "GRAND-MASTER"
-  | "CHALLENGER";
 
 const menuItems: Array<{ id: number; value: Tier; name: string }> = [
   { id: 1, value: "IRON", name: "아이언" },

@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { Box, Card } from "@mui/material";
 
 import ProfileImage from "./ProfileImage";
@@ -10,27 +11,29 @@ const content =
 
 export default function AttiCard() {
   return (
-    <Card
-      sx={{
-        width: "600px",
-        height: "300px",
-        display: "flex",
-      }}
-    >
-      <ProfileImage />
-      <Box
+    <Link to="/atti/1" state={{ id: 1 }}>
+      <Card
         sx={{
-          width: "100%",
-          padding: 2,
+          width: "600px",
+          height: "300px",
           display: "flex",
-          flexDirection: "column",
-          justifyContent: "space-between",
         }}
       >
-        <AttiInfo />
-        <IntroduceBox content={content} />
-        <Audio audioSrc="" />
-      </Box>
-    </Card>
+        <ProfileImage />
+        <Box
+          sx={{
+            width: "100%",
+            padding: 2,
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "space-between",
+          }}
+        >
+          <AttiInfo />
+          <IntroduceBox content={content} />
+          <Audio audioSrc="" />
+        </Box>
+      </Card>
+    </Link>
   );
 }
