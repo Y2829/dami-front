@@ -1,5 +1,5 @@
+import type { Tier } from "src/types/lol";
 import type { SortType } from "./FilterItems/SortTypeSelect";
-import type { Tier } from "./FilterItems/TierSelect";
 import type { Gender } from "./FilterItems/GenderCheck";
 import type { Position } from "./FilterItems/PositionCheck";
 import { useState } from "react";

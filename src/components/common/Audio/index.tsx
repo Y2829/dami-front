@@ -1,12 +1,18 @@
+import type { SxProps } from "@mui/material";
 import { Box } from "@mui/material";
 
 interface AudioProps {
   audioSrc: string;
+  sx?: SxProps;
 }
 
-export default function Auido({ audioSrc }: AudioProps) {
+export default function Audio({ audioSrc, sx }: AudioProps) {
   return (
-    <Box>
+    <Box
+      sx={{
+        ...sx,
+      }}
+    >
       <audio
         src={audioSrc}
         controls
