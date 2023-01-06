@@ -15,7 +15,7 @@ export default function ProfileImageCard({ images }: ProfileImageCardProps) {
   return (
     <Card
       sx={{
-        width: "400px",
+        width: "40%",
         height: "400px",
       }}
     >

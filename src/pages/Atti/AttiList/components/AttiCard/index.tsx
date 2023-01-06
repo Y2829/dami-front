@@ -11,7 +11,7 @@ const content =
 
 export default function AttiCard() {
   return (
-    <Link to="/atti/1" state={{ id: 1 }}>
+    <Link to="/atti/1" state={{ id: 1 }} style={{ textDecoration: "none" }}>
       <Card
         sx={{
           width: "600px",

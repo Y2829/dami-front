@@ -21,7 +21,7 @@ export default function IntroduceCard({ atti }: IntroduceCardProps) {
   return (
     <Card
       sx={{
-        width: "600px",
+        width: "55%",
         height: "400px",
         padding: 3,
         display: "flex",

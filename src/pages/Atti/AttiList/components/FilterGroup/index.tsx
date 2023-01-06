@@ -66,6 +66,7 @@ export default function FilterGroup() {
       <Box
         sx={{
           width: "25%",
+          minWidth: "350px",
           display: "flex",
           justifyContent: "space-between",
         }}
@@ -78,7 +79,8 @@ export default function FilterGroup() {
       </Box>
       <Box
         sx={{
-          width: "50%",
+          width: "70%",
+          minWidth: "700px",
           display: "flex",
           justifyContent: "space-between",
           marginTop: 2,
