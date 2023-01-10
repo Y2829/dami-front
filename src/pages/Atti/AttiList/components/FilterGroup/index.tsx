@@ -6,7 +6,7 @@ import { useState } from "react";
 
 import { Box, Button } from "@mui/material";
 import SortTypeSelect from "./FilterItems/SortTypeSelect";
-import TierSelect from "./FilterItems/TierSelect";
+import TierSelect from "../../../../../components/common/SelectList/TierSelect";
 import GenderCheck from "./FilterItems/GenderCheck";
 import PositionCheck from "./FilterItems/PositionCheck";
 

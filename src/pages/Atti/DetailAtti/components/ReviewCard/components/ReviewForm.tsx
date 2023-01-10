@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Card, Box, Button, Typography, TextField } from "@mui/material";
 
-import StarSelect from "src/components/common/StarSelect";
+import StarSelect from "src/components/common/SelectList/StarSelect";
 
 interface ReviewFormProps {
   onSubmit: (rating: number, content: string) => void;
