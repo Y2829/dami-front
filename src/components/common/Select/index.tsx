@@ -1,7 +1,5 @@
 import type { SelectChangeEvent } from "@mui/material/Select";
 
-import { useState } from "react";
-
 import Box from "@mui/material/Box";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
@@ -31,7 +29,11 @@ const Select = <T,>({ label, value, menuItems, onChange }: SelectProps<T>) => {
     >
       <FormControl fullWidth>
         <InputLabel>{label}</InputLabel>
-        <MuiSelect value={value ? `${value}` : ""} onChange={handleChange}>
+        <MuiSelect
+          label={label}
+          value={value ? `${value}` : ""}
+          onChange={handleChange}
+        >
           {menuItems.map((item) => (
             <MenuItem value={`${item.value}`} key={item.id}>
               {item.name}

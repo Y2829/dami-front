@@ -1,11 +1,18 @@
 import type { FC } from "react";
 
+import { useNavigate } from "react-router-dom";
+
 import { Box, Avatar, Typography } from "@mui/material";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 
 import palette from "src/theme/palette";
 
 const Profile: FC = () => {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate("/user/me");
+  };
   return (
     <Box
       sx={{
@@ -26,6 +33,7 @@ const Profile: FC = () => {
           display: "flex",
           alignItems: "center",
         }}
+        onClick={handleClick}
       >
         <Avatar>A</Avatar>
         <Typography
@@ -41,6 +49,7 @@ const Profile: FC = () => {
         sx={{
           color: palette.grey[500],
         }}
+        onClick={handleClick}
       />
     </Box>
   );

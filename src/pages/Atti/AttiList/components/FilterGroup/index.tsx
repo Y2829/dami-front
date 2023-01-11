@@ -1,14 +1,14 @@
 import type { Tier } from "src/types/lol";
 import type { SortType } from "./FilterItems/SortTypeSelect";
-import type { Gender } from "./FilterItems/GenderCheck";
-import type { Position } from "./FilterItems/PositionCheck";
+import type { Gender } from "../../../../../components/common/CheckList/GenderCheck";
+import type { Position } from "../../../../../components/common/CheckList/PositionCheck";
 import { useState } from "react";
 
 import { Box, Button } from "@mui/material";
 import SortTypeSelect from "./FilterItems/SortTypeSelect";
-import TierSelect from "./FilterItems/TierSelect";
-import GenderCheck from "./FilterItems/GenderCheck";
-import PositionCheck from "./FilterItems/PositionCheck";
+import TierSelect from "../../../../../components/common/SelectList/TierSelect";
+import GenderCheck from "../../../../../components/common/CheckList/GenderCheck";
+import PositionCheck from "../../../../../components/common/CheckList/PositionCheck";
 
 export default function FilterGroup() {
   const [checkedGenderValue, setCheckedGenderValue] = useState<Set<Gender>>(
