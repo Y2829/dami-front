@@ -1,7 +1,7 @@
 import type { Tier, Position } from "src/types/lol";
 import { Box, Grid, Button } from "@mui/material";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import CenterContainer from "src/components/Layout/CenterContainer";
 
@@ -11,9 +11,24 @@ import PositionCheckCard from "./components/PositionCheckCard";
 import AudioUploadCard from "./components/AudioUploadCard";
 import IntroTextCard from "./components/IntroTextCard";
 
+type DefaultValues = {
+  introText: string;
+  tier: Tier | null;
+  position: Set<Position>;
+};
+
 export default function Profile() {
-  const [tier, setTier] = useState<Tier | null>(null);
-  const [position, setPosition] = useState<Set<Position>>(new Set());
+  const [defaultValues, setDefaultValues] = useState<DefaultValues>({
+    introText: "",
+    tier: null,
+    position: new Set(),
+  });
+  const [isDirty, setIsDirty] = useState(false);
+  const [tier, setTier] = useState<Tier | null>(defaultValues.tier);
+  const [introText, setIntroText] = useState<string>(defaultValues.introText);
+  const [position, setPosition] = useState<Set<Position>>(
+    defaultValues.position,
+  );
 
   const handleCheckPosition = (value: Position) => {
     const updatedPosition = new Set(position);
@@ -25,6 +40,25 @@ export default function Profile() {
 
     setPosition(updatedPosition);
   };
+
+  useEffect(() => {
+    if (introText !== defaultValues.introText) {
+      setIsDirty(true);
+      return;
+    }
+
+    if (tier !== defaultValues.tier) {
+      setIsDirty(true);
+      return;
+    }
+
+    if (position !== defaultValues.position) {
+      setIsDirty(true);
+      return;
+    }
+
+    setIsDirty(false);
+  }, [tier, introText, position]);
 
   return (
     <CenterContainer>
@@ -44,7 +78,10 @@ export default function Profile() {
         }}
       >
         <Grid item xs={5}>
-          <IntroTextCard />
+          <IntroTextCard
+            value={introText}
+            onChange={(newValue) => setIntroText(newValue)}
+          />
         </Grid>
 
         <Grid item xs={7}>
@@ -77,6 +114,7 @@ export default function Profile() {
                 sx={{
                   height: "48px",
                 }}
+                disabled={isDirty === false}
               >
                 저장하기
               </Button>
