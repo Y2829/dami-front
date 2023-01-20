@@ -1,5 +1,6 @@
 import type { FC } from "react";
 
+import { Link } from "react-router-dom";
 import { styled } from "@mui/material";
 import { Box, Typography } from "@mui/material";
 
@@ -12,7 +13,9 @@ const Title = styled(Typography)(({ theme }) => ({
 const Logo: FC = () => {
   return (
     <Box>
-      <Title>DAMI</Title>
+      <Link to="" style={{ textDecoration: "none" }}>
+        <Title>DAMI</Title>
+      </Link>
     </Box>
   );
 };

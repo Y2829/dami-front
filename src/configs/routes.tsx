@@ -10,10 +10,10 @@ import Profile from "src/pages/Profile";
 const ROUTES: Array<RouteItem> = [
   {
     name: "Home",
-    path: "/home",
+    path: "",
     icon: <HomeIcon />,
     component: <Home />,
-    isNavigation: true,
+    isNavigation: false,
   },
   {
     name: "아띠찾기",
