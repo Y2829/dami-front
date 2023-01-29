@@ -4,6 +4,7 @@ module.exports = {
   roots: ["."],
   modulePaths: ["."],
   moduleDirectories: ["node_modules"],
+  setupFilesAfterEnv: ["<rootDir>/src/setupTests.ts"],
   coverageThreshold: {
     "./src/": {
       statements: 80,
