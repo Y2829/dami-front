@@ -4,6 +4,7 @@ import HomeIcon from "@mui/icons-material/Home";
 
 import Home from "src/pages/Home";
 import AttiList from "src/pages/Atti/AttiList";
+import AttiStory from "src/pages/Atti/Story";
 import DetailAtti from "src/pages/Atti/DetailAtti";
 import Profile from "src/pages/Profile";
 
@@ -19,6 +20,12 @@ const ROUTES: Array<RouteItem> = [
     name: "아띠찾기",
     path: "/atti/list",
     component: <AttiList />,
+    isNavigation: true,
+  },
+  {
+    name: "아띠소식",
+    path: "/atti/story",
+    component: <AttiStory />,
     isNavigation: true,
   },
   {

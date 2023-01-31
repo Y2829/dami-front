@@ -41,7 +41,7 @@ const Account: FC = () => {
   return (
     <Box
       sx={{
-        display: "flex",
+        display: { xs: "none", md: "none", lg: "flex" },
         alignItems: "center",
       }}
     >

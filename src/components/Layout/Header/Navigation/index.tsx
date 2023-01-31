@@ -5,6 +5,7 @@ import { styled } from "@mui/material";
 import { Box } from "@mui/material";
 
 import ROUTES from "src/configs/routes";
+import { BREAK_POINT } from "src/configs/layout";
 
 const NavItem = styled(Box)(({ theme }) => ({
   fontSize: "18px",
@@ -24,7 +25,7 @@ const Navigation: FC = () => {
     <Box
       sx={{
         width: "70%",
-        display: "flex",
+        display: { xs: "none", md: "none", lg: "flex" },
         justifyContent: "start",
       }}
     >
